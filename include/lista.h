@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-#include "aluno.h"
+#include <aluno.h>
 
 typedef struct elemento {
 	Aluno *valor;

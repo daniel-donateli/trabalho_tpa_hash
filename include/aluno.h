@@ -11,7 +11,7 @@ typedef struct aluno {
 
 #define PRINT_ALUNO(aluno) do {\
 			printf("{\n"); \
-			printf("\tMatrÃ­cula: %d;\n", aluno->matricula); \
+			printf("\tMatrícula: %d;\n", aluno->matricula); \
 			printf("\tNome: %s;\n", aluno->nome); \
 			printf("}\n");\
 		} while(0)

@@ -75,10 +75,10 @@ Aluno *search_lista_matricula(Lista *l, int matricula)
 void print_lista(Lista *l)
 {
 	Elemento *aux = l->prim;
-	printf("\nLISTA:\n[\n");
+	//printf("\nLISTA:\n[\n");
 	while (aux != NULL) {
 		PRINT_ALUNO(aux->valor);
 		aux = aux->prox;
 	}
-	printf("]\n");
+	//printf("]\n");
 }

@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Wextra -O2
-CC = clang
+CC = gcc
 INCLUDE = ./include
-OBJS=main.o lista.o
+OBJS=main.o hash_fechada.o lista.o
 
 all: main
 
@@ -13,6 +13,9 @@ clean:
 
 lista.o:
 	${CC} ${CFLAGS} -I${INCLUDE} -c ./src/lista.c -o lista.o
+
+hash_fechada.o:
+	${CC} ${CFLAGS} -I${INCLUDE} -c ./src/hash_fechada.c -o hash_fechada.o
 
 main.o:
 	${CC} ${CFLAGS} -I${INCLUDE} -c ./src/main.c -o main.o
