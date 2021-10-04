@@ -1,7 +1,8 @@
 CFLAGS = -Wall -Wextra -O2
 CC = gcc
 INCLUDE = ./include
-OBJS=main.o hash_fechada.o lista.o
+SRC = ./src
+OBJS=main.o file_reader.o hash_fechada.o lista.o
 
 all: main
 
@@ -12,10 +13,13 @@ clean:
 	-rm -f *.o 
 
 lista.o:
-	${CC} ${CFLAGS} -I${INCLUDE} -c ./src/lista.c -o lista.o
+	${CC} ${CFLAGS} -I${INCLUDE} -c ${SRC}/lista.c -o lista.o
 
 hash_fechada.o:
-	${CC} ${CFLAGS} -I${INCLUDE} -c ./src/hash_fechada.c -o hash_fechada.o
+	${CC} ${CFLAGS} -I${INCLUDE} -c ${SRC}/hash_fechada.c -o hash_fechada.o
+
+file_reader.o:
+	${CC} ${CFLAGS} -I${INCLUDE} -c ${SRC}/file_reader.c -o file_reader.o
 
 main.o:
-	${CC} ${CFLAGS} -I${INCLUDE} -c ./src/main.c -o main.o
+	${CC} ${CFLAGS} -I${INCLUDE} -c .${SRC}/main.c -o main.o

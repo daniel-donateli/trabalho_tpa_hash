@@ -7,6 +7,7 @@
 typedef struct aluno {
 	int matricula;
 	char nome[50];
+	int nota;
 } Aluno;
 
 #define PRINT_ALUNO(aluno) do {\
@@ -16,10 +17,11 @@ typedef struct aluno {
 			printf("}\n");\
 		} while(0)
 
-static inline Aluno *new_aluno(int matricula, char nome[50])
+static inline Aluno *new_aluno(int matricula, char nome[50], int nota)
 {
 	Aluno *a = (Aluno *) malloc(sizeof(Aluno));
 	a->matricula = matricula;
 	strcpy_s(a->nome, 50, nome);
+	a->nota = nota;
 	return a;
 }
