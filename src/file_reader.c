@@ -5,7 +5,7 @@ void read_file(FILE *fp, HashFechada *h)
 	if(fp == NULL) return;
 	int i;
 	char *token;
-	char *linha;
+	char linha[256];
 	int qtd = atoi(fgets(linha, 256, fp));
 	char nome[50];
 	int matricula;
