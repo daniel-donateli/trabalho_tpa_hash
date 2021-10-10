@@ -30,6 +30,7 @@ int remove_hashFechada(HashFechada *h, int matricula)
 {
 	Aluno *a = search_lista_matricula(h->dados[hash(h, matricula)], matricula);
 	if(a == NULL) return 0;
+	h->quantidade--;
 	return remove_lista(h->dados[hash(h, matricula)], a);
 }
 

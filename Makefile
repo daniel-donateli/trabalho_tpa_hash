@@ -1,12 +1,12 @@
-CFLAGS = -Wall -Wextra -O2
-CC = gcc
+CFLAGS = -Wall -Wextra -pedantic -O2
+CC = clang
 INCLUDE = ./include
 SRC = ./src
-OBJS=main.o file_reader.o hash_fechada.o lista.o
+OBJS=main.o menu.o file_reader.o hash_fechada.o lista.o
 
-all: main
+.PHONY: all main.o menu.o file_reader.o hash_fechada.o lista.o
 
-main: $(OBJS)
+all: $(OBJS)
 	${CC} ${CFLAGS} -I${INCLUDE} -o main.exe ${OBJS}
 
 clean:
@@ -21,5 +21,8 @@ hash_fechada.o:
 file_reader.o:
 	${CC} ${CFLAGS} -I${INCLUDE} -c ${SRC}/file_reader.c -o file_reader.o
 
+menu.o:
+	${CC} ${CFLAGS} -I${INCLUDE} -c ${SRC}/menu.c -o menu.o
+
 main.o:
-	${CC} ${CFLAGS} -I${INCLUDE} -c .${SRC}/main.c -o main.o
+	${CC} ${CFLAGS} -I${INCLUDE} -c ${SRC}/main.c -o main.o

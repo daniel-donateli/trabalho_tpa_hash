@@ -14,6 +14,7 @@ typedef struct aluno {
 			printf("{\n"); \
 			printf("\tMatrícula: %d;\n", aluno->matricula); \
 			printf("\tNome: %s;\n", aluno->nome); \
+			printf("\tNota: %d;\n", aluno->nota); \
 			printf("}\n");\
 		} while(0)
 
