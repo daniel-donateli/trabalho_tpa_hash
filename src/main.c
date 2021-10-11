@@ -13,5 +13,6 @@ int main(int argv, char *args[])
 	FILE *fp = fopen("dados.txt", "r");
 	read_file(fp, h1, h2);
 	fclose(fp);
+	//print_hashFechada(h1);
 	return menu(h1, h2);
 }

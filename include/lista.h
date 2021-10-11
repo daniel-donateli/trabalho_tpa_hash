@@ -12,13 +12,14 @@ typedef struct elemento {
 typedef struct lista {
 	Elemento *prim;
 	Elemento *ult;
+	int quantidade;
 } Lista;
 
 Lista *new_lista();
 
 void insert_lista(Lista *l, Aluno *a);
 
-int remove_lista(Lista *l, Aluno *a);
+Aluno *remove_lista(Lista *l, Aluno *a);
 
 Aluno *search_lista_nome(Lista *l, char nome[50]);
 

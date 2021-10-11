@@ -10,6 +10,7 @@ Lista *new_lista()
 	Lista *l = (Lista *) malloc(sizeof(Lista));
 	l->prim = NULL;
 	l->ult = NULL;
+	l->quantidade = 0;
 	return l;
 }
 
@@ -24,12 +25,14 @@ void insert_lista(Lista *l, Aluno *a)
 		l->ult->prox = novo;
 		l->ult = novo;
 	}
+	l->quantidade++;
 }
 
-int remove_lista(Lista *l, Aluno *a)
+Aluno *remove_lista(Lista *l, Aluno *a)
 {
 	Elemento *aux = l->prim;
 	Elemento *ant = NULL;
+	//Aluno *ret;
 	while(aux != NULL) {
 		if(aux->valor == a) {
 			if(aux == l->prim) l->prim = aux->prox;
@@ -38,14 +41,15 @@ int remove_lista(Lista *l, Aluno *a)
 				ant->prox = NULL;
 			}
 			else ant->prox = aux->prox;
-			free(aux->valor);
+			//ret = aux->valor;
 			free(aux);
-			return 1;
+			l->quantidade--;
+			return a;
 		}
 		ant = aux;
 		aux = aux->prox;
 	}
-	return 0;
+	return NULL;
 }
 
 Aluno *search_lista_nome(Lista *l, char *nome)

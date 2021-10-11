@@ -6,18 +6,26 @@
 
 static inline void print_menu()
 {
-	printf("1 - Exibir estatísticas\n");
-	printf("2 - Efetuar busca por matrícula\n");
-	printf("3 - Excluir por matrícula\n");
-	printf("4 - Incluir aluno\n");
-	printf("0 - Sair\n");
+	fflush(stdout);
+	printf("-------------------------------------------------------------------------------\n");
+	printf("                                 Menu Principal                                \n");
+	printf("-------------------------------------------------------------------------------\n");
+	printf("| 1 - Exibir estatísticas                                                     |\n");
+	printf("| 2 - Efetuar busca por matrícula                                             |\n");
+	printf("| 3 - Excluir por matrícula                                                   |\n");
+	printf("| 4 - Incluir aluno                                                            |\n");
+	printf("| 0 - Sair                                                                     |\n");
+	printf("-------------------------------------------------------------------------------\n");
 	printf("Opção: ");
 }
 
 int menu(HashFechada *h1, HashFechada *h2)
 {
 	int quit = 0;
-	int op;
+	int op, matricula, nota;
+	char nome[50];
+	Aluno *a;
+				
 	while(!quit) {
 		print_menu();
 		fflush(stdout);
@@ -26,18 +34,51 @@ int menu(HashFechada *h1, HashFechada *h2)
 		switch(op)
 		{
 			case 1:
-				//Exibir estatisticas
+				printf("-------------------------------------------------------------------------------\n");
+				printf("                                  Estatísticas                             \n");
+				printf("-------------------------------------------------------------------------------\n");
+				printf("\nHash 1: \n");
+				print_stats(h1);
+				printf("\nHash 2: \n");
+				print_stats(h2);
 				break;
 			case 2:
-				//Busca por matricula
+				printf("-------------------------------------------------------------------------------\n");
+				printf("                                     Buscar                             \n");
+				printf("-------------------------------------------------------------------------------\n");
+				printf("Matrícula: ");
+				scanf("%d", &matricula);
+				a = search_hashFechada_matricula(h1, matricula);
+				if(a != NULL) PRINT_ALUNO(a);
+				else {
+					printf("Aluno não encontrado\n");
+				}
 				break;
 			case 3:
-				//Excluir por matricula
+				//int matricula;
+				printf("-------------------------------------------------------------------------------\n");
+				printf("                                     Excluir                             \n");
+				printf("-------------------------------------------------------------------------------\n");
+				printf("Matrícula: ");
+				//fflush(stdout);
+				scanf("%d", &matricula);
+				a = remove_hashFechada(h1, matricula);
+				if(a == remove_hashFechada(h2, matricula)) {
+					if(a == NULL) printf("Aluno não encontrado\n");
+					else {
+						printf("Excluindo aluno: ");
+						PRINT_ALUNO(a);
+						free(a);
+					}
+				}
+				else {
+					printf("Erro ao excluir\n");
+				}
 				break;
 			case 4:
-				char nome[50];
-				int matricula, nota;
-
+				printf("-------------------------------------------------------------------------------\n");
+				printf("                                     Inserir                             \n");
+				printf("-------------------------------------------------------------------------------\n");
 				printf("Matrícula: ");
 				fflush(stdout);
 				scanf("%d", &matricula);
@@ -55,7 +96,7 @@ int menu(HashFechada *h1, HashFechada *h2)
 				printf("\n");
 
 				// Inserir
-				Aluno *a = new_aluno(matricula, nome, nota);
+				a = new_aluno(matricula, nome, nota);
 				insert_hashFechada(h1, a);
 				insert_hashFechada(h2, a);
 				break;

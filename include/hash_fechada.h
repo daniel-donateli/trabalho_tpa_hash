@@ -11,8 +11,10 @@ HashFechada *new_hashFechada(int tamanho);
 
 void insert_hashFechada(HashFechada *h, Aluno *a);
 
-int remove_hashFechada(HashFechada *h, int matricula);
+Aluno *remove_hashFechada(HashFechada *h, int matricula);
 
-Aluno *search_hashFechada_matricula(HashFechada *h, Aluno *a);
+Aluno *search_hashFechada_matricula(HashFechada *h, int matricula);
 
 void print_hashFechada(HashFechada *h);
+
+void print_stats(HashFechada *h);
