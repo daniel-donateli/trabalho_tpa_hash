@@ -11,6 +11,7 @@ HashFechada *new_hashFechada(int tamanho);
 
 void insert_hashFechada(HashFechada *h, Aluno *a);
 
+// Retorna o aluno para dar free fora da função
 Aluno *remove_hashFechada(HashFechada *h, int matricula);
 
 Aluno *search_hashFechada_matricula(HashFechada *h, int matricula);

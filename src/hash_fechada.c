@@ -55,11 +55,11 @@ void print_stats(HashFechada *h)
 {
 	int maior;
 	int menor;
-	int qtd_intervalo = 0;
+	int qtd_intervalo = 0; // quantidade de índices dentro do intervalo de média + ou - desvio padrão
 	maior = menor = 0;
 	int i;
 	double media = (double) h->quantidade / (double) h->tamanho;
-	double somatoria = 0;
+	double somatoria = 0; // Para calcular desvio padrão
 
 	for(i=0; i<h->tamanho; i++) {
 		if(h->dados[i]->quantidade > h->dados[maior]->quantidade) maior = i;

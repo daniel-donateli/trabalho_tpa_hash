@@ -32,7 +32,6 @@ Aluno *remove_lista(Lista *l, Aluno *a)
 {
 	Elemento *aux = l->prim;
 	Elemento *ant = NULL;
-	//Aluno *ret;
 	while(aux != NULL) {
 		if(aux->valor == a) {
 			if(aux == l->prim) l->prim = aux->prox;
@@ -41,7 +40,6 @@ Aluno *remove_lista(Lista *l, Aluno *a)
 				ant->prox = NULL;
 			}
 			else ant->prox = aux->prox;
-			//ret = aux->valor;
 			free(aux);
 			l->quantidade--;
 			return a;
@@ -79,10 +77,8 @@ Aluno *search_lista_matricula(Lista *l, int matricula)
 void print_lista(Lista *l)
 {
 	Elemento *aux = l->prim;
-	//printf("\nLISTA:\n[\n");
 	while (aux != NULL) {
 		PRINT_ALUNO(aux->valor);
 		aux = aux->prox;
 	}
-	//printf("]\n");
 }

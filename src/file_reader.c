@@ -34,8 +34,10 @@ void write_file(FILE *fp, HashFechada *h)
 	int i;
 	Elemento *aux = NULL;
 	for(i=0; i<h->tamanho; i++) {
+		// Se a lista estiver vazia pular iteração
 		if(h->dados[i]->prim == NULL) continue;
 		aux = h->dados[i]->prim;
+		// Percorrer a lista e ir gravando em arquivo
 		while(aux != NULL) {
 			fprintf(fp, "%d;%d;%s;%d\n", i, aux->valor->matricula, aux->valor->nome, aux->valor->nota);
 			aux = aux->prox;

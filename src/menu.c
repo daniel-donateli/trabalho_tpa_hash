@@ -1,4 +1,3 @@
-#include <corecrt_wstdio.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -49,18 +48,18 @@ int menu(HashFechada *h1, HashFechada *h2)
 				printf("Matrícula: ");
 				scanf("%d", &matricula);
 				a = search_hashFechada_matricula(h1, matricula);
-				if(a != NULL) PRINT_ALUNO(a);
+				if(a == remove_hashFechada(h2, matricula)) {
+					if(a != NULL) PRINT_ALUNO(a);
+				}
 				else {
 					printf("Aluno não encontrado\n");
 				}
 				break;
 			case 3:
-				//int matricula;
 				printf("-------------------------------------------------------------------------------\n");
 				printf("                                     Excluir                             \n");
 				printf("-------------------------------------------------------------------------------\n");
 				printf("Matrícula: ");
-				//fflush(stdout);
 				scanf("%d", &matricula);
 				a = remove_hashFechada(h1, matricula);
 				if(a == remove_hashFechada(h2, matricula)) {

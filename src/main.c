@@ -8,8 +8,8 @@
 int main(int argv, char *args[]) 
 {
 	setlocale(LC_ALL, "Portuguese");
-	HashFechada *h1 = new_hashFechada(10);
-	HashFechada *h2 = new_hashFechada(7);
+	HashFechada *h1 = new_hashFechada(1000);
+	HashFechada *h2 = new_hashFechada(997);
 	FILE *fp = fopen("dados.txt", "r");
 	read_file(fp, h1, h2);
 	fclose(fp);
